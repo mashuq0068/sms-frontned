@@ -1,0 +1,34 @@
+{
+  "10-A": {
+    "Monday": [
+      { "period": 1, "subject": "Mathematics", "teacher": "Dr. Smith", "time": "8:00-9:00", "color": "hsl(220, 70%, 50%)" },
+      { "period": 2, "subject": "English", "teacher": "Ms. Johnson", "time": "9:00-10:00", "color": "hsl(270, 60%, 60%)" },
+      { "period": 3, "subject": "Science", "teacher": "Mr. Brown", "time": "10:00-11:00", "color": "hsl(145, 65%, 45%)" },
+      { "period": 4, "subject": "History", "teacher": "Mrs. Davis", "time": "11:00-12:00", "color": "hsl(35, 90%, 55%)" }
+    ],
+    "Tuesday": [
+      { "period": 1, "subject": "Science", "teacher": "Mr. Brown", "time": "8:00-9:00", "color": "hsl(145, 65%, 45%)" },
+      { "period": 2, "subject": "Mathematics", "teacher": "Dr. Smith", "time": "9:00-10:00", "color": "hsl(220, 70%, 50%)" },
+      { "period": 3, "subject": "Physical Education", "teacher": "Coach Wilson", "time": "10:00-11:00", "color": "hsl(0, 72%, 51%)" },
+      { "period": 4, "subject": "English", "teacher": "Ms. Johnson", "time": "11:00-12:00", "color": "hsl(270, 60%, 60%)" }
+    ],
+    "Wednesday": [
+      { "period": 1, "subject": "History", "teacher": "Mrs. Davis", "time": "8:00-9:00", "color": "hsl(35, 90%, 55%)" },
+      { "period": 2, "subject": "Science", "teacher": "Mr. Brown", "time": "9:00-10:00", "color": "hsl(145, 65%, 45%)" },
+      { "period": 3, "subject": "Mathematics", "teacher": "Dr. Smith", "time": "10:00-11:00", "color": "hsl(220, 70%, 50%)" },
+      { "period": 4, "subject": "Art", "teacher": "Ms. Lee", "time": "11:00-12:00", "color": "hsl(330, 70%, 60%)" }
+    ],
+    "Thursday": [
+      { "period": 1, "subject": "English", "teacher": "Ms. Johnson", "time": "8:00-9:00", "color": "hsl(270, 60%, 60%)" },
+      { "period": 2, "subject": "Mathematics", "teacher": "Dr. Smith", "time": "9:00-10:00", "color": "hsl(220, 70%, 50%)" },
+      { "period": 3, "subject": "Computer Science", "teacher": "Mr. Taylor", "time": "10:00-11:00", "color": "hsl(190, 70%, 50%)" },
+      { "period": 4, "subject": "Science", "teacher": "Mr. Brown", "time": "11:00-12:00", "color": "hsl(145, 65%, 45%)" }
+    ],
+    "Friday": [
+      { "period": 1, "subject": "Mathematics", "teacher": "Dr. Smith", "time": "8:00-9:00", "color": "hsl(220, 70%, 50%)" },
+      { "period": 2, "subject": "History", "teacher": "Mrs. Davis", "time": "9:00-10:00", "color": "hsl(35, 90%, 55%)" },
+      { "period": 3, "subject": "English", "teacher": "Ms. Johnson", "time": "10:00-11:00", "color": "hsl(270, 60%, 60%)" },
+      { "period": 4, "subject": "Physical Education", "teacher": "Coach Wilson", "time": "11:00-12:00", "color": "hsl(0, 72%, 51%)" }
+    ]
+  }
+}

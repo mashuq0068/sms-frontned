@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* School Management System Design System */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 98%;
+    --foreground: 220 15% 20%;
+
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    /* Primary - Fresh Green (Parrot Green) */
+    --primary: 145 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 145 70% 55%;
+
+    /* Secondary - Teal Accent */
+    --secondary: 170 65% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Success - Green */
+    --success: 145 65% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Orange */
+    --warning: 35 90% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 10% 50%;
+
+    /* Accent */
+    --accent: 145 50% 95%;
+    --accent-foreground: 145 70% 30%;
+
+    /* Destructive - Red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 145 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Light Gray */
+    --sidebar-background: 220 13% 97%;
+    --sidebar-foreground: 220 15% 25%;
+    --sidebar-primary: 145 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 92%;
+    --sidebar-accent-foreground: 220 15% 30%;
+    --sidebar-border: 220 13% 90%;
+    --sidebar-ring: 145 70% 45%;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(145, 70%, 45%), hsl(170, 65%, 50%));
+    --gradient-success: linear-gradient(135deg, hsl(145, 65%, 45%), hsl(160, 65%, 50%));
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(220, 13%, 99%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 15% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 15% 20% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 15% 20% / 0.1);
+    --shadow-glow: 0 0 20px hsl(145 70% 45% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 25% 10%;
+    --foreground: 220 10% 95%;
+
+    --card: 220 25% 14%;
+    --card-foreground: 220 10% 95%;
+
+    --popover: 220 25% 14%;
+    --popover-foreground: 220 10% 95%;
+
+    --primary: 145 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 145 70% 60%;
+
+    --secondary: 170 65% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --success: 145 65% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 90% 60%;
+    --warning-foreground: 0 0% 100%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 270 40% 20%;
+    --accent-foreground: 270 60% 85%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 145 70% 50%;
+
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 145 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 25% 14%;
+    --sidebar-accent-foreground: 220 10% 95%;
+    --sidebar-border: 220 25% 12%;
+    --sidebar-ring: 145 70% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(145, 70%, 50%), hsl(170, 65%, 55%));
+    --gradient-success: linear-gradient(135deg, hsl(145, 65%, 50%), hsl(160, 65%, 55%));
+    --gradient-card: linear-gradient(180deg, hsl(220, 25%, 14%), hsl(220, 25%, 16%));
+
+    --shadow-glow: 0 0 20px hsl(145 70% 50% / 0.4);
+  }
+}
+
+
+/* Custom thin scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 0px; /* scrollbar width */
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent; /* track background */
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(214, 213, 214, 0.5); /* thumb color */
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(214, 213, 214, 0.5);
+}
+
+/* For Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(214, 213, 214, 0.5) transparent;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}

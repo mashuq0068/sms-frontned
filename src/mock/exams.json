@@ -1,0 +1,29 @@
+[
+  {
+    "id": "EX001",
+    "name": "Mid-Term Examination",
+    "class": "10-A",
+    "startDate": "2025-02-01",
+    "endDate": "2025-02-10",
+    "status": "Upcoming",
+    "subjects": [
+      { "name": "Mathematics", "maxMarks": 100, "date": "2025-02-01" },
+      { "name": "Science", "maxMarks": 100, "date": "2025-02-03" },
+      { "name": "English", "maxMarks": 100, "date": "2025-02-05" },
+      { "name": "Social Studies", "maxMarks": 100, "date": "2025-02-07" }
+    ]
+  },
+  {
+    "id": "EX002",
+    "name": "Final Examination",
+    "class": "10-A",
+    "startDate": "2025-05-01",
+    "endDate": "2025-05-15",
+    "status": "Upcoming",
+    "subjects": [
+      { "name": "Mathematics", "maxMarks": 100, "date": "2025-05-01" },
+      { "name": "Science", "maxMarks": 100, "date": "2025-05-03" },
+      { "name": "English", "maxMarks": 100, "date": "2025-05-05" }
+    ]
+  }
+]

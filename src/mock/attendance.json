@@ -1,0 +1,19 @@
+{
+  "10-A": {
+    "2025-01-15": [
+      { "studentId": "STU001", "status": "Present" },
+      { "studentId": "STU002", "status": "Absent" }
+    ],
+    "2025-01-16": [
+      { "studentId": "STU001", "status": "Present" },
+      { "studentId": "STU002", "status": "Late" }
+    ]
+  },
+  "summary": {
+    "totalDays": 180,
+    "presentDays": 165,
+    "absentDays": 10,
+    "lateDays": 5,
+    "percentage": 91.7
+  }
+}

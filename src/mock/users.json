@@ -1,0 +1,57 @@
+[
+  {
+    "id": "USR001",
+    "name": "Dr. James Smith",
+    "role": "Teacher",
+    "email": "james.smith@school.com",
+    "phone": "+1-555-0201",
+    "subjects": ["Mathematics"],
+    "classes": ["9-A", "10-A", "10-B"],
+    "status": "Active",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=James"
+  },
+  {
+    "id": "USR002",
+    "name": "Ms. Emily Johnson",
+    "role": "Teacher",
+    "email": "emily.johnson@school.com",
+    "phone": "+1-555-0202",
+    "subjects": ["English"],
+    "classes": ["9-A", "10-A"],
+    "status": "Active",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily"
+  },
+  {
+    "id": "USR003",
+    "name": "Mr. Robert Brown",
+    "role": "Teacher",
+    "email": "robert.brown@school.com",
+    "phone": "+1-555-0203",
+    "subjects": ["Science", "Chemistry"],
+    "classes": ["10-A", "10-B"],
+    "status": "Active",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert"
+  },
+  {
+    "id": "USR004",
+    "name": "Sarah Williams",
+    "role": "Admin",
+    "email": "sarah.williams@school.com",
+    "phone": "+1-555-0204",
+    "subjects": [],
+    "classes": [],
+    "status": "Active",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
+  },
+  {
+    "id": "USR005",
+    "name": "Michael Davis",
+    "role": "Accountant",
+    "email": "michael.davis@school.com",
+    "phone": "+1-555-0205",
+    "subjects": [],
+    "classes": [],
+    "status": "Active",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "schoolName": "School Name",
+  "logoUrl": "/logo.svg",
+  "themeColor": "220 70% 50%",
+  "apiBaseUrl": "https://your-erpnext-instance.com/api"
+}

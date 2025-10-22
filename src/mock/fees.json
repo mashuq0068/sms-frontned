@@ -1,0 +1,41 @@
+[
+  {
+    "id": "INV001",
+    "studentId": "STU001",
+    "studentName": "Emma Johnson",
+    "class": "10-A",
+    "invoiceNumber": "INV-2024-001",
+    "amount": 5000,
+    "paid": 5000,
+    "pending": 0,
+    "dueDate": "2024-04-30",
+    "status": "Paid",
+    "paidDate": "2024-04-15"
+  },
+  {
+    "id": "INV002",
+    "studentId": "STU002",
+    "studentName": "Liam Smith",
+    "class": "10-A",
+    "invoiceNumber": "INV-2024-002",
+    "amount": 5000,
+    "paid": 3000,
+    "pending": 2000,
+    "dueDate": "2024-04-30",
+    "status": "Pending",
+    "paidDate": null
+  },
+  {
+    "id": "INV003",
+    "studentId": "STU004",
+    "studentName": "Noah Davis",
+    "class": "9-A",
+    "invoiceNumber": "INV-2024-003",
+    "amount": 4800,
+    "paid": 2000,
+    "pending": 2800,
+    "dueDate": "2024-03-30",
+    "status": "Overdue",
+    "paidDate": null
+  }
+]
