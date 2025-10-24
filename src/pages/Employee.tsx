@@ -5,6 +5,17 @@ import { Badge } from '@/components/ui/badge';
 import { Plus, Mail, Phone } from 'lucide-react';
 
 const Employee = () => {
+    const getStatusColor = (status: string) => {
+    switch (status.toLowerCase()) {
+      case 'active':
+        return 'bg-success/30 text-foreground/70';
+      case 'on-leave':
+        return 'bg-warning/30 text-foreground/70';
+     
+      default:
+        return 'bg-muted/30 text-foreground/70';
+    }
+  };
   return (
     <Shell>
       <div className="space-y-6">
@@ -79,7 +90,7 @@ const Employee = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Badge variant={employee.status === 'active' ? 'default' : 'secondary'}>
+                    <Badge className={getStatusColor(employee.status)}>
                       {employee.status}
                     </Badge>
                     <Button size="sm" variant="outline">View</Button>

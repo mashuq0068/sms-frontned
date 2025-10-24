@@ -1,9 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Students from "./pages/Students";
@@ -21,25 +19,20 @@ import StudentLeave from './pages/StudentLeave';
 import Employee from './pages/Employee';
 import Leave from './pages/Leave';
 import NotFound from "./pages/NotFound";
+import { FrappeProvider } from "frappe-react-sdk";
+import clientConfig from "../src/config/client.json";
 
-const queryClient = new QueryClient();
+
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  }
-
-  if (!user) {
-    return <Navigate to="/" replace />;
-  }
 
   return <>{children}</>;
 };
-
+function getTokenFromLocalStorage() {
+  return localStorage.getItem("frappe_token") || "";
+}
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+   <FrappeProvider url={clientConfig.apiBaseUrl} >
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -86,7 +79,7 @@ const App = () => (
               </ProtectedRoute>
             }
           />
-          {/* <Route
+          <Route
             path="/fees"
             element={
               <ProtectedRoute>
@@ -166,12 +159,12 @@ const App = () => (
                 <Leave />
               </ProtectedRoute>
             }
-          /> */}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+    </FrappeProvider>
 );
 
 export default App;

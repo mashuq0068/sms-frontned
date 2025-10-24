@@ -19,6 +19,18 @@ export default function Payroll() {
     { label: 'Monthly Payroll', value: '₹18.5L', icon: DollarSign, color: 'text-success' },
     { label: 'Paid This Month', value: '35', icon: TrendingUp, color: 'text-secondary' },
   ];
+    const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'Paid':
+        return 'bg-success/30 text-foreground/70';
+      case 'Pending':
+        return 'bg-warning/30 text-foreground/70';
+      case 'Overdue':
+        return 'bg-destructive/30 text-foreground/70';
+      default:
+        return 'bg-muted/30 text-foreground/70';
+    }
+  };
 
   return (
     <Shell>
@@ -75,7 +87,7 @@ export default function Payroll() {
                     <TableCell>{staff.role}</TableCell>
                     <TableCell>₹{staff.salary.toLocaleString()}</TableCell>
                     <TableCell>
-                      <Badge variant={staff.status === 'Paid' ? 'default' : 'secondary'}>
+                      <Badge className={getStatusColor(staff.status)}>
                         {staff.status}
                       </Badge>
                     </TableCell>

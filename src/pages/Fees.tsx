@@ -27,13 +27,13 @@ const Fees = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Paid':
-        return 'bg-success text-success-foreground';
+        return 'bg-success/30 text-foreground/70';
       case 'Pending':
-        return 'bg-warning text-warning-foreground';
+        return 'bg-warning/30 text-foreground/70';
       case 'Overdue':
-        return 'bg-destructive text-destructive-foreground';
+        return 'bg-destructive/30 text-foreground/70';
       default:
-        return 'bg-muted text-muted-foreground';
+        return 'bg-muted/30 text-foreground/70';
     }
   };
 

@@ -5,6 +5,18 @@ import { Badge } from '@/components/ui/badge';
 import { Plus } from 'lucide-react';
 
 const Leave = () => {
+    const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'approved':
+        return 'bg-success/30 text-foreground/70';
+      case 'rejected':
+        return 'bg-destructive/30 text-foreground/70';
+        case 'pending':
+        return 'bg-warning/30 text-foreground/70';
+      default:
+        return 'bg-muted/30 text-foreground/70';
+    }
+  };
   return (
     <Shell>
       <div className="space-y-6">
@@ -65,11 +77,7 @@ const Leave = () => {
                     <p className="text-sm">{leave.startDate} to {leave.endDate} • {leave.type}</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Badge variant={
-                      leave.status === 'approved' ? 'default' : 
-                      leave.status === 'pending' ? 'secondary' : 
-                      'destructive'
-                    }>
+                    <Badge className={getStatusColor(leave.status)}>
                       {leave.status}
                     </Badge>
                     {leave.status === 'pending' && (

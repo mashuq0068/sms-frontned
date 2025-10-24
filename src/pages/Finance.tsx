@@ -21,6 +21,17 @@ export default function Finance() {
     { label: 'Budget Utilization', value: '73%', change: '-2.1%', trend: 'neutral', icon: PieChart },
   ];
 
+    const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'Income':
+        return 'bg-success/30 text-foreground/70';
+      case 'Expense':
+        return 'bg-warning/30 text-foreground/70';
+      
+      default:
+        return 'bg-muted/30 text-foreground/70';
+    }
+  };
   return (
     <Shell>
       <div className="space-y-6">
@@ -89,7 +100,7 @@ export default function Finance() {
                     </TableCell>
                     <TableCell>{transaction.description}</TableCell>
                     <TableCell>
-                      <Badge variant={transaction.type === 'Income' ? 'default' : 'secondary'}>
+                      <Badge className={getStatusColor(transaction.type)}>
                         {transaction.type}
                       </Badge>
                     </TableCell>

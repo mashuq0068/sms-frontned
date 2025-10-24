@@ -28,13 +28,13 @@ const Users = () => {
   const getRoleBadgeColor = (role: string) => {
     switch (role) {
       case 'Admin':
-        return 'bg-destructive text-destructive-foreground';
+        return 'bg-destructive/30 text-foreground/70';
       case 'Teacher':
-        return 'bg-primary text-primary-foreground';
+        return 'bg-primary/30 text-foreground/70';
       case 'Accountant':
-        return 'bg-secondary text-secondary-foreground';
+        return 'bg-secondary/50 text-foreground/70';
       default:
-        return 'bg-muted text-muted-foreground';
+        return 'bg-muted/30 text-foreground/70';
     }
   };
 

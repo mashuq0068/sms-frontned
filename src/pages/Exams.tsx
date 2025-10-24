@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { Shell } from '@/components/layout/Shell';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -18,8 +19,8 @@ const Exams = () => {
   
   const getStatusColor = (status: string) => {
     return status === 'Upcoming' 
-      ? 'bg-warning text-warning-foreground' 
-      : 'bg-muted text-muted-foreground';
+      ? 'bg-warning/40 text-foreground/70' 
+      : 'bg-muted/30 text-foreground/70';
   };
 
   return (

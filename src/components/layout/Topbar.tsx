@@ -1,5 +1,5 @@
-import { Menu, Search, Bell, Moon, Sun } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Menu, Search, Bell, Moon, Sun } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,25 +7,43 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useTheme } from '@/hooks/useTheme';
-import { useAuth } from '@/hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
-
+} from "@/components/ui/dropdown-menu";
+import Cookies from "js-cookie";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useTheme } from "@/hooks/useTheme";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "../ui/dialog";
+import getCookie from "@/utils/getCookie";
+import clientConfig from "@/config/client.json";
 interface TopbarProps {
   onMenuClick: () => void;
 }
 
 export const Topbar = ({ onMenuClick }: TopbarProps) => {
   const { theme, toggleTheme } = useTheme();
-  const { user, logout } = useAuth();
+  const [isLogoutDialogOpen, setLogoutDialogOpen] = useState(false);
+  const { currentUser: user, logout } = useAuth();
+  const userImagePath = Cookies.get("user_image");
+  const userImageUrl = userImagePath
+    ? `${clientConfig.apiBaseUrl}${userImagePath}`
+    : undefined;
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
+    setLogoutDialogOpen(false);
   };
 
   return (
@@ -56,7 +74,7 @@ export const Topbar = ({ onMenuClick }: TopbarProps) => {
           onClick={toggleTheme}
           className="rounded-full"
         >
-          {theme === 'light' ? (
+          {theme === "light" ? (
             <Moon className="w-5 h-5" />
           ) : (
             <Sun className="w-5 h-5" />
@@ -72,7 +90,7 @@ export const Topbar = ({ onMenuClick }: TopbarProps) => {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-10 w-10 rounded-full">
               <Avatar>
-                <AvatarImage src={user?.avatar} alt={user?.name} />
+                <AvatarImage src={userImageUrl} alt={user?.name} />
                 <AvatarFallback>{user?.name?.charAt(0)}</AvatarFallback>
               </Avatar>
             </Button>
@@ -85,14 +103,37 @@ export const Topbar = ({ onMenuClick }: TopbarProps) => {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => navigate('/settings')}>
+            <DropdownMenuItem onClick={() => navigate("/settings")}>
               Settings
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleLogout}>
+            <DropdownMenuItem onClick={() => setLogoutDialogOpen(true)}>
               Logout
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+
+        <Dialog open={isLogoutDialogOpen} onOpenChange={setLogoutDialogOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Confirm Logout</DialogTitle>
+              <DialogDescription>
+                Are you sure you want to log out? You will need to sign in
+                again.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter className="flex justify-end gap-2">
+              <Button
+                variant="outline"
+                onClick={() => setLogoutDialogOpen(false)}
+              >
+                Cancel
+              </Button>
+              <Button variant="destructive" onClick={handleLogout}>
+                Logout
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </header>
   );

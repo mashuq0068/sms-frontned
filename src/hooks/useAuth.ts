@@ -1,53 +1,63 @@
-import { useState, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from 'react';
+import { useFrappeAuth } from 'frappe-react-sdk';
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  avatar?: string;
+interface LoginResult {
+  success: boolean;
+  user?: any;
 }
 
 export const useAuth = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { login, logout: frappeLogout, error, isLoading } = useFrappeAuth();
+  const [currentUser, setCurrentUser] = useState<any>(null);
 
-  useEffect(() => {
-    // Check for stored user session in both localStorage and sessionStorage
-    const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setLoading(false);
-  }, []);
+  const handleLogin = async (
+    email: string,
+    password: string,
+    rememberMe?: boolean
+  ): Promise<LoginResult> => {
+    try {
+      const res = await login({ username: email, password });
+      if (res?.message === 'Logged In') {
+        if (rememberMe) localStorage.setItem('frappe-user', email);
 
-  const login = async (email: string, password: string, rememberMe: boolean) => {
-    // Mock login - replace with actual API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    const mockUser: User = {
-      id: 'USR001',
-      name: 'Admin User',
-      email: email,
-      role: 'Admin',
-      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Admin'
-    };
-    
-    if (rememberMe) {
-      localStorage.setItem('user', JSON.stringify(mockUser));
-    } else {
-      sessionStorage.setItem('user', JSON.stringify(mockUser));
+        // // fetch logged-in username
+        // const userRes = await fetch(`http://192.168.172.129:8001/api/method/frappe.auth.get_logged_user`, {
+        //   method: 'GET',
+        //   credentials: 'include', 
+        //   headers: { Accept: 'application/json' },
+        // });
+        // const data = await userRes.json(); 
+
+        // // fetch full User document
+        // const userDocRes = await fetch(`http://192.168.172.129:8001/api/resource/User/${data.message}`, {
+        //   method: 'GET',
+        //   credentials: 'include',
+        //   headers: { Accept: 'application/json' },
+        // });
+        // const userDoc = await userDocRes.json();
+
+        // setCurrentUser(userDoc.data);
+        return { success: true, user: currentUser };
+      }
+
+      return { success: false };
+    } catch (err) {
+      console.error('Login failed:', err);
+      return { success: false };
     }
-    
-    setUser(mockUser);
-    return { success: true };
   };
 
-  const logout = () => {
-    localStorage.removeItem('user');
-    sessionStorage.removeItem('user');
-    setUser(null);
+  const handleLogout = () => {
+    setCurrentUser(null);
+    frappeLogout();
   };
 
-  return { user, loading, login, logout };
+  return {
+    login: handleLogin,
+    logout: handleLogout,
+    currentUser,
+    error,
+    isLoading,
+  };
 };
